@@ -19,8 +19,8 @@ module ALU #(WIDTH = 1)
   assign Sum = SrcA + SrcB_var;
   N_zero_extend #(.N(WIDTH)) zExt1(Sum[WIDTH-1], zExtended);
 
-  assign OrOperation = A | B;
-  assign AndOperation = A & B;
+  assign OrOperation = SrcA | SrcB;
+  assign AndOperation = SrcA & SrcB;
 
   mux_8NxN #(.N(WIDTH)) m2({0,0,zExtended,0,OrOperation,AndOperation,Sum,Sum},ALUControl,ALUResult);
   assign zero = ~ALUResult[WIDTH-1];
