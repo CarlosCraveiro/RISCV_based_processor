@@ -1,0 +1,16 @@
+Fitter Status : Successful - Mon Nov 21 10:02:57 2022
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Lite Edition
+Revision Name : regBankTest
+Top-level Entity Name : regBankTest
+Family : Cyclone IV E
+Device : EP4CE6E22C8
+Timing Models : Final
+Total logic elements : 392 / 6,272 ( 6 % )
+    Total combinational functions : 392 / 6,272 ( 6 % )
+    Dedicated logic registers : 29 / 6,272 ( < 1 % )
+Total registers : 29
+Total pins : 29 / 92 ( 32 % )
+Total virtual pins : 0
+Total memory bits : 0 / 276,480 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )
