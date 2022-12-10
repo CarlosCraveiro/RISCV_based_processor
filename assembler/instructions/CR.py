@@ -52,6 +52,12 @@ class CR:
 
         return self
 
+    # set all values to "invalid" once again
+    def reset(self):
+        self.rs1 = "invalid"
+        self.rs2 = "invalid"
+        self.func = "invalid"
+
     # parse command with specified fields
     def parse(self):
         op = "00"
@@ -63,6 +69,6 @@ class CR:
             self.func == "invalid"
         ):
             raise ValueError("Wrong syntax! Could not parse command.")
-
+        
         return self.func + self.gap + self.rs1 + self.rs2 + op
 
