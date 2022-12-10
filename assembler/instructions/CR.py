@@ -3,7 +3,7 @@ class CR:
     rs2 = "invalid"
     rs1 = "invalid"
     gap = "00000"
-    function = "invalid"
+    func = "invalid"
 
     functions = ["add", "sub", "and", "or", "slt"]
 
