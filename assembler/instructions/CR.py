@@ -1,11 +1,12 @@
 # register operations
 class CR:
-    rs2 = "invalid"
-    rs1 = "invalid"
-    gap = "00000"
-    func = "invalid"
+    def __init__(self):
+        self.rs2 = "invalid"
+        self.rs1 = "invalid"
+        self.gap = "00000"
+        self.func = "invalid"
 
-    functions = ["add", "sub", "and", "or", "slt"]
+        self.functions = ["add", "sub", "and", "or", "slt"]
 
     # fields setters
 
