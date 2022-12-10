@@ -11,35 +11,32 @@ class CR:
     # fields setters
 
     # generic register setter (rs: str)
-    def setRS(rs):
+    def setRS(self, rs):
         if ('x' not in rs):
             return "invalid"
         
         # remove 'x' from register's name
-        rs.replace('x', '')
+        rs = rs.replace('x', '')
 
         # check if register exists
         rs = int(rs)
         if (rs < 0 or rs > 7):
             return "invalid"
 
-        # parse register number to binary representation
-        rs = list(bin(rs))
-        rs.remove('0')
-        rs.remove('b')
-
         # return binary representation as string
-        return ''.join(rs)
+        return '{0:03b}'.format(rs)
 
     # specific register setters (register: str)
     def setRS1(self, register1):
-        rs1 = self.setRS(register1)
+        self.rs1 = self.setRS(register1)
+        return self
 
     def setRS2(self, register2):
-        rs1 = self.setRS(register2)
+        self.rs2 = self.setRS(register2)
+        return self
 
     # function (function: str)
-    def setFunct(self, function):
+    def setFunc(self, function):
         if function == "add":
             self.func= "000"
         elif function == "sub":
@@ -52,6 +49,8 @@ class CR:
             self.func = "101"
         else:
             self.func = "invalid"
+
+        return self
 
     # parse command with specified fields
     def parse(self):
