@@ -53,7 +53,7 @@ def main():
     file = sys.argv[1]
     fileName = file.split(".")[0]
     sourceFile = open(file, 'r')
-    assembledFile = open(fileName + '.bin', 'wb')
+    assembledFile = open(fileName + '.rsv', 'wb')
     
     assemble(sourceFile, assembledFile)    
     
