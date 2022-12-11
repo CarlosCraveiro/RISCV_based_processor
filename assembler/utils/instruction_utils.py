@@ -23,7 +23,7 @@ def instructionToBytes(instruction):
         sum2 += secondPart[i] * (2 ** power)
         power += 1
     
-    return bytes(bytearray([sum2, sum1]))
+    return bytes(bytearray([sum1, sum2]))
 
 def inputToCommandList(input):
     # transform commas into spaces
