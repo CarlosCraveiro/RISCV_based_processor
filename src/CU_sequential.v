@@ -9,7 +9,7 @@
 `define EXECUTE_I	4'b1000
 `define BNEZ		4'b1001
 
-module sequential(
+module CU_sequential(
   input		 [3:0]	curr_state,
   input		 [1:0]	op,
   input 	 [2:0]	func_3,
