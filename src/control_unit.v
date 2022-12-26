@@ -42,7 +42,7 @@ module control_unit(
     alu_decoder aludecod(.curr_state(curr_state) , .func(func_3), .alu_control(alu_control));
 
     // swtiching circuit to define pc_write
-    pc_write = pc_update or (zero_flag and (curr_state == `BNEZ));
+    pc_write = pc_update or (~zero_flag and (curr_state == `BNEZ));
 
     // gets next state
     CU_sequential cseq(.curr_state(curr_state), .op(op), .func_3(func_3), .next_state(next_state));
