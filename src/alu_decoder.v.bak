@@ -14,7 +14,7 @@
 module alu_decoder(
   input [3:0] curr_state,
   input [2:0] func,
-  output reg [2:0] alu_control
+  output [2:0] alu_control
 );
 
   always @(curr_state) begin

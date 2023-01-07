@@ -1,0 +1,15 @@
+#
+#
+# 
+# 12/14/22 15:19:56
+load_library scl05u
+set_working_dir C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src
+read -technology "scl05u"  { C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v }
+pre_optimize -common_logic -unused_logic -boundary -xor_comparator_optimize 
+pre_optimize -extract 
+view_schematic -rtl -view
+optimize .work.DE10_LITE_FSM.INTERFACE -target scl05u -macro -area -effort quick -hierarchy auto 
+optimize_timing .work.DE10_LITE_FSM.INTERFACE 
+optimize .work.DE10_LITE_FSM.INTERFACE -target scl05u -macro -auto -effort quick -hierarchy auto 
+optimize_timing .work.DE10_LITE_FSM.INTERFACE 
+view_schematic -view
