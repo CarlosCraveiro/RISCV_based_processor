@@ -1,5 +1,5 @@
 Fitter report for DE10_LITE_Golden_Top
-Sat Jan  7 17:27:24 2023
+Sun Jan  8 17:07:42 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -73,7 +73,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +------------------------------------+---------------------------------------------+
-; Fitter Status                      ; Successful - Sat Jan  7 17:27:24 2023       ;
+; Fitter Status                      ; Successful - Sun Jan  8 17:07:42 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; DE10_LITE_Golden_Top                        ;
 ; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
@@ -165,7 +165,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   9.4%      ;
+;     Processor 2            ;   9.0%      ;
 +----------------------------+-------------+
 
 
@@ -2087,8 +2087,8 @@ Warning (169177): 13 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 
 Info (144001): Generated suppressed messages file /home/coveiro/Templates/RISCV_based_processor/quartus/output_files/DE10_LITE_Golden_Top.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 46 warnings
     Info: Peak virtual memory: 1043 megabytes
-    Info: Processing ended: Sat Jan  7 17:27:24 2023
-    Info: Elapsed time: 00:00:14
+    Info: Processing ended: Sun Jan  8 17:07:43 2023
+    Info: Elapsed time: 00:00:15
     Info: Total CPU time (on all processors): 00:00:19
 
 

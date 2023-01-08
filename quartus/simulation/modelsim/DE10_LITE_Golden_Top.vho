@@ -17,7 +17,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition"
 
--- DATE "01/07/2023 17:27:35"
+-- DATE "01/08/2023 17:07:54"
 
 -- 
 -- Device: Altera 10M50DAF484C7G Package FBGA484
@@ -93,14 +93,14 @@ ENTITY 	DE10_LITE_Golden_Top IS
 	MAX10_CLK1_50 : IN std_logic;
 	KEY : IN std_logic_vector(1 DOWNTO 0);
 	SW : IN std_logic_vector(9 DOWNTO 0);
-	LEDR : OUT std_logic_vector(9 DOWNTO 0);
-	HEX0 : OUT std_logic_vector(7 DOWNTO 0);
-	HEX1 : OUT std_logic_vector(7 DOWNTO 0);
-	VGA_HS : OUT std_logic;
-	VGA_VS : OUT std_logic;
-	VGA_R : OUT std_logic_vector(3 DOWNTO 0);
-	VGA_G : OUT std_logic_vector(3 DOWNTO 0);
-	VGA_B : OUT std_logic_vector(3 DOWNTO 0)
+	LEDR : BUFFER std_logic_vector(9 DOWNTO 0);
+	HEX0 : BUFFER std_logic_vector(7 DOWNTO 0);
+	HEX1 : BUFFER std_logic_vector(7 DOWNTO 0);
+	VGA_HS : BUFFER std_logic;
+	VGA_VS : BUFFER std_logic;
+	VGA_R : BUFFER std_logic_vector(3 DOWNTO 0);
+	VGA_G : BUFFER std_logic_vector(3 DOWNTO 0);
+	VGA_B : BUFFER std_logic_vector(3 DOWNTO 0)
 	);
 END DE10_LITE_Golden_Top;
 
@@ -1120,6 +1120,9 @@ SIGNAL B : std_logic_vector(15 DOWNTO 0);
 SIGNAL \VGA0|char_address\ : std_logic_vector(5 DOWNTO 0);
 SIGNAL \VGA0|SYNC|pixel_row\ : std_logic_vector(9 DOWNTO 0);
 SIGNAL ALUOut : std_logic_vector(15 DOWNTO 0);
+SIGNAL \CNT0|ALT_INV_q[25]~clkctrl_outclk\ : std_logic;
+SIGNAL \VGA0|ALT_INV_clock_25MHz~clkctrl_outclk\ : std_logic;
+SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
 SIGNAL \FSM0|ALT_INV_pc_write~combout\ : std_logic;
 SIGNAL \display1|ALT_INV_seg_g~0_combout\ : std_logic;
 SIGNAL \display1|ALT_INV_seg_f~0_combout\ : std_logic;
@@ -1137,9 +1140,6 @@ SIGNAL \display0|ALT_INV_seg_c~0_combout\ : std_logic;
 SIGNAL \display0|ALT_INV_seg_b~0_combout\ : std_logic;
 SIGNAL \display0|ALT_INV_seg_a~0_combout\ : std_logic;
 SIGNAL \ALU0|m2|m3|ALT_INV_out~0_combout\ : std_logic;
-SIGNAL \CNT0|ALT_INV_q[25]~clkctrl_outclk\ : std_logic;
-SIGNAL \VGA0|ALT_INV_clock_25MHz~clkctrl_outclk\ : std_logic;
-SIGNAL \ALT_INV_KEY[1]~input_o\ : std_logic;
 
 COMPONENT hard_block
     PORT (
@@ -1223,6 +1223,9 @@ ww_devpor <= devpor;
 \CNT0|q[25]~clkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \CNT0|q\(25));
 
 \MAX10_CLK1_50~inputclkctrl_INCLK_bus\ <= (vcc & vcc & vcc & \MAX10_CLK1_50~input_o\);
+\CNT0|ALT_INV_q[25]~clkctrl_outclk\ <= NOT \CNT0|q[25]~clkctrl_outclk\;
+\VGA0|ALT_INV_clock_25MHz~clkctrl_outclk\ <= NOT \VGA0|clock_25MHz~clkctrl_outclk\;
+\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
 \FSM0|ALT_INV_pc_write~combout\ <= NOT \FSM0|pc_write~combout\;
 \display1|ALT_INV_seg_g~0_combout\ <= NOT \display1|seg_g~0_combout\;
 \display1|ALT_INV_seg_f~0_combout\ <= NOT \display1|seg_f~0_combout\;
@@ -1240,9 +1243,6 @@ ww_devpor <= devpor;
 \display0|ALT_INV_seg_b~0_combout\ <= NOT \display0|seg_b~0_combout\;
 \display0|ALT_INV_seg_a~0_combout\ <= NOT \display0|seg_a~0_combout\;
 \ALU0|m2|m3|ALT_INV_out~0_combout\ <= NOT \ALU0|m2|m3|out~0_combout\;
-\CNT0|ALT_INV_q[25]~clkctrl_outclk\ <= NOT \CNT0|q[25]~clkctrl_outclk\;
-\VGA0|ALT_INV_clock_25MHz~clkctrl_outclk\ <= NOT \VGA0|clock_25MHz~clkctrl_outclk\;
-\ALT_INV_KEY[1]~input_o\ <= NOT \KEY[1]~input_o\;
 auto_generated_inst : hard_block
 PORT MAP (
 	devoe => ww_devoe,

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for DE10_LITE_Golden_Top
-Sat Jan  7 17:27:09 2023
+Sun Jan  8 17:07:27 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -75,7 +75,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jan  7 17:27:09 2023       ;
+; Analysis & Synthesis Status        ; Successful - Sun Jan  8 17:07:27 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; DE10_LITE_Golden_Top                        ;
 ; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
@@ -870,7 +870,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Sat Jan  7 17:26:53 2023
+    Info: Processing started: Sun Jan  8 17:07:11 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_LITE_Golden_Top -c DE10_LITE_Golden_Top
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -885,11 +885,8 @@ Info (12021): Found 1 design units, including 0 entities, in source file /home/c
 Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD
     Info (12022): Found design unit 1: Char_ROM-a File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 16
     Info (12023): Found entity 1: Char_ROM File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 9
-Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.vhd
-    Info (12022): Found design unit 1: DE10_LITE_Golden_Topzera-rtl File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.vhd Line: 34
-    Info (12023): Found entity 1: DE10_LITE_Golden_Topzera File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.vhd Line: 6
-Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_RV16Cm.v
-    Info (12023): Found entity 1: DE10_LITE_RV16Cm File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_RV16Cm.v Line: 6
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_Golden_Top.vhd is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_RV16Cm.v is missing
 Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd
     Info (12022): Found design unit 1: de10_lite_memory-SYN File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 55
     Info (12023): Found entity 1: DE10_LITE_Memory File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 43
@@ -897,16 +894,12 @@ Info (12021): Found 1 design units, including 0 entities, in source file /home/c
     Info (12022): Found design unit 1: RV16Cm_pkg File: /home/coveiro/Templates/RISCV_based_processor/src/RV16Cm_pkg.vhd Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_counter.v
     Info (12023): Found entity 1: DE10_LITE_counter File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_counter.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_FSM.v
-    Info (12023): Found entity 1: DE10_LITE_FSM File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_FSM.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_ALU.v
-    Info (12023): Found entity 1: DE10_LITE_ALU File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_ALU.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_RegBank.v
-    Info (12023): Found entity 1: DE10_LITE_RegBank File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_RegBank.v Line: 1
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_FSM.v is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_ALU.v is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_RegBank.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_decod.v
     Info (12023): Found entity 1: DE10_LITE_decod File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_decod.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/MAX6816.v
-    Info (12023): Found entity 1: MAX6816 File: /home/coveiro/Templates/RISCV_based_processor/src/MAX6816.v Line: 1
+Warning (12019): Can't analyze file -- file ../src/MAX6816.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v
     Info (12023): Found entity 1: RegBank File: /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v
@@ -1186,9 +1179,9 @@ Info (21057): Implemented 900 device resources after synthesis - the final resou
     Info (21059): Implemented 40 output pins
     Info (21061): Implemented 817 logic cells
     Info (21064): Implemented 30 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 63 warnings
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
     Info: Peak virtual memory: 653 megabytes
-    Info: Processing ended: Sat Jan  7 17:27:09 2023
+    Info: Processing ended: Sun Jan  8 17:07:27 2023
     Info: Elapsed time: 00:00:16
     Info: Total CPU time (on all processors): 00:00:32
 
