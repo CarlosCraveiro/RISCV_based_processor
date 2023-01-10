@@ -1,0 +1,1188 @@
+Analysis & Synthesis report for DE10_LITE_Golden_Top
+Sun Jan  8 17:07:27 2023
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis IP Cores Summary
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Source assignments for DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated
+ 14. Source assignments for DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom|altsyncram_emr3:auto_generated
+ 15. Source assignments for DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom|altsyncram_8or3:auto_generated
+ 16. Parameter Settings for User Entity Instance: DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component
+ 17. Parameter Settings for User Entity Instance: RegBank:RegBank0
+ 18. Parameter Settings for User Entity Instance: ALU:ALU0
+ 19. Parameter Settings for User Entity Instance: ALU:ALU0|two_complement:twc
+ 20. Parameter Settings for User Entity Instance: ALU:ALU0|mux_2NxN:m1
+ 21. Parameter Settings for User Entity Instance: ALU:ALU0|N_zero_extend:zExt1
+ 22. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2
+ 23. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1
+ 24. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m1
+ 25. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m2
+ 26. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m3
+ 27. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2
+ 28. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m1
+ 29. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m2
+ 30. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m3
+ 31. Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_2NxN:m3
+ 32. Parameter Settings for User Entity Instance: DE10_LITE_counter:CNT0
+ 33. Parameter Settings for User Entity Instance: DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom
+ 34. Parameter Settings for User Entity Instance: DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom
+ 35. altsyncram Parameter Settings by Entity Instance
+ 36. Port Connectivity Checks: "DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC"
+ 37. Port Connectivity Checks: "DE10_LITE_decod:display0"
+ 38. Port Connectivity Checks: "DE10_LITE_decod:display1"
+ 39. Port Connectivity Checks: "DE10_LITE_counter:CNT0"
+ 40. Port Connectivity Checks: "DE10_LITE_Memory:Memory0"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sun Jan  8 17:07:27 2023       ;
+; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                      ; DE10_LITE_Golden_Top                        ;
+; Top-level Entity Name              ; DE10_LITE_Golden_Top                        ;
+; Family                             ; MAX 10                                      ;
+; Total logic elements               ; 796                                         ;
+;     Total combinational functions  ; 648                                         ;
+;     Dedicated logic registers      ; 276                                         ;
+; Total registers                    ; 276                                         ;
+; Total pins                         ; 53                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 20,840                                      ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
+; UFM blocks                         ; 0                                           ;
+; ADC blocks                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                  ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Option                                                           ; Setting              ; Default Value        ;
++------------------------------------------------------------------+----------------------+----------------------+
+; Device                                                           ; 10M50DAF484C7G       ;                      ;
+; Top-level entity name                                            ; DE10_LITE_Golden_Top ; DE10_LITE_Golden_Top ;
+; Family name                                                      ; MAX 10               ; Cyclone V            ;
+; Auto RAM Replacement                                             ; Off                  ; On                   ;
+; Use smart compilation                                            ; Off                  ; Off                  ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                   ; On                   ;
+; Enable compact report table                                      ; Off                  ; Off                  ;
+; Restructure Multiplexers                                         ; Auto                 ; Auto                 ;
+; Create Debugging Nodes for IP Cores                              ; Off                  ; Off                  ;
+; Preserve fewer node names                                        ; On                   ; On                   ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable               ; Enable               ;
+; Verilog Version                                                  ; Verilog_2001         ; Verilog_2001         ;
+; VHDL Version                                                     ; VHDL_1993            ; VHDL_1993            ;
+; State Machine Processing                                         ; Auto                 ; Auto                 ;
+; Safe State Machine                                               ; Off                  ; Off                  ;
+; Extract Verilog State Machines                                   ; On                   ; On                   ;
+; Extract VHDL State Machines                                      ; On                   ; On                   ;
+; Ignore Verilog initial constructs                                ; Off                  ; Off                  ;
+; Iteration limit for constant Verilog loops                       ; 5000                 ; 5000                 ;
+; Iteration limit for non-constant Verilog loops                   ; 250                  ; 250                  ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                   ; On                   ;
+; Infer RAMs from Raw Logic                                        ; On                   ; On                   ;
+; Parallel Synthesis                                               ; On                   ; On                   ;
+; DSP Block Balancing                                              ; Auto                 ; Auto                 ;
+; NOT Gate Push-Back                                               ; On                   ; On                   ;
+; Power-Up Don't Care                                              ; On                   ; On                   ;
+; Remove Redundant Logic Cells                                     ; Off                  ; Off                  ;
+; Remove Duplicate Registers                                       ; On                   ; On                   ;
+; Ignore CARRY Buffers                                             ; Off                  ; Off                  ;
+; Ignore CASCADE Buffers                                           ; Off                  ; Off                  ;
+; Ignore GLOBAL Buffers                                            ; Off                  ; Off                  ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                  ; Off                  ;
+; Ignore LCELL Buffers                                             ; Off                  ; Off                  ;
+; Ignore SOFT Buffers                                              ; On                   ; On                   ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                  ; Off                  ;
+; Optimization Technique                                           ; Balanced             ; Balanced             ;
+; Carry Chain Length                                               ; 70                   ; 70                   ;
+; Auto Carry Chains                                                ; On                   ; On                   ;
+; Auto Open-Drain Pins                                             ; On                   ; On                   ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                  ; Off                  ;
+; Auto ROM Replacement                                             ; On                   ; On                   ;
+; Auto DSP Block Replacement                                       ; On                   ; On                   ;
+; Auto Shift Register Replacement                                  ; Auto                 ; Auto                 ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto                 ; Auto                 ;
+; Auto Clock Enable Replacement                                    ; On                   ; On                   ;
+; Strict RAM Replacement                                           ; Off                  ; Off                  ;
+; Allow Synchronous Control Signals                                ; On                   ; On                   ;
+; Force Use of Synchronous Clear Signals                           ; Off                  ; Off                  ;
+; Auto RAM Block Balancing                                         ; On                   ; On                   ;
+; Auto RAM to Logic Cell Conversion                                ; Off                  ; Off                  ;
+; Auto Resource Sharing                                            ; Off                  ; Off                  ;
+; Allow Any RAM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any ROM Size For Recognition                               ; Off                  ; Off                  ;
+; Allow Any Shift Register Size For Recognition                    ; Off                  ; Off                  ;
+; Use LogicLock Constraints during Resource Balancing              ; On                   ; On                   ;
+; Ignore translate_off and synthesis_off directives                ; Off                  ; Off                  ;
+; Timing-Driven Synthesis                                          ; On                   ; On                   ;
+; Report Parameter Settings                                        ; On                   ; On                   ;
+; Report Source Assignments                                        ; On                   ; On                   ;
+; Report Connectivity Checks                                       ; On                   ; On                   ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                  ; Off                  ;
+; Synchronization Register Chain Length                            ; 2                    ; 2                    ;
+; Power Optimization During Synthesis                              ; Normal compilation   ; Normal compilation   ;
+; HDL message level                                                ; Level2               ; Level2               ;
+; Suppress Register Optimization Related Messages                  ; Off                  ; Off                  ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000                 ; 5000                 ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000                 ; 5000                 ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                  ; 100                  ;
+; Clock MUX Protection                                             ; On                   ; On                   ;
+; Auto Gated Clock Conversion                                      ; Off                  ; Off                  ;
+; Block Design Naming                                              ; Auto                 ; Auto                 ;
+; SDC constraint protection                                        ; Off                  ; Off                  ;
+; Synthesis Effort                                                 ; Auto                 ; Auto                 ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                   ; On                   ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                  ; Off                  ;
+; Analysis & Synthesis Message Level                               ; Medium               ; Medium               ;
+; Disable Register Merging Across Hierarchies                      ; Auto                 ; Auto                 ;
+; Resource Aware Inference For Block RAM                           ; On                   ; On                   ;
++------------------------------------------------------------------+----------------------+----------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                                                                                        ;
++--------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                             ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                                                                              ; Library ;
++--------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+; ../src/DE10_LITE_VGA_Generator.vhd                           ; yes             ; User VHDL File                         ; /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd                                                             ;         ;
+; ../src/VGA_SYNC.VHD                                          ; yes             ; User VHDL File                         ; /home/coveiro/Templates/RISCV_based_processor/src/VGA_SYNC.VHD                                                                            ;         ;
+; ../src/UP1PACK.VHD                                           ; yes             ; User VHDL File                         ; /home/coveiro/Templates/RISCV_based_processor/src/UP1PACK.VHD                                                                             ;         ;
+; ../src/CHAR_ROM.VHD                                          ; yes             ; User VHDL File                         ; /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD                                                                            ;         ;
+; ../src/program.mif                                           ; yes             ; User Memory Initialization File        ; /home/coveiro/Templates/RISCV_based_processor/src/program.mif                                                                             ;         ;
+; ../src/DE10_LITE_Memory.vhd                                  ; yes             ; User Wizard-Generated File             ; /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd                                                                    ;         ;
+; ../src/DE10_LITE_counter.v                                   ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_counter.v                                                                     ;         ;
+; ../src/DE10_LITE_decod.v                                     ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_decod.v                                                                       ;         ;
+; ../src/register_bank.v                                       ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v                                                                         ;         ;
+; ../src/control_unit.v                                        ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v                                                                          ;         ;
+; ../src/CU_main_decoder.v                                     ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/CU_main_decoder.v                                                                       ;         ;
+; ../src/CU_sequential.v                                       ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v                                                                         ;         ;
+; ../src/alu_decoder.v                                         ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v                                                                           ;         ;
+; ../src/DE10_LITE_Golden_Top.v                                ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v                                                                  ;         ;
+; ../src/ALU.v                                                 ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/ALU.v                                                                                   ;         ;
+; ../src/two_complement.v                                      ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/two_complement.v                                                                        ;         ;
+; ../src/muxes.v                                               ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/muxes.v                                                                                 ;         ;
+; ../src/N_zero_extend.v                                       ; yes             ; User Verilog HDL File                  ; /home/coveiro/Templates/RISCV_based_processor/src/N_zero_extend.v                                                                         ;         ;
+; altsyncram.tdf                                               ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc                                        ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                                                  ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                                               ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal201.inc                                               ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/aglobal201.inc        ;         ;
+; a_rdenreg.inc                                                ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                                                   ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                                                   ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                                                 ; yes             ; Megafunction                           ; /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_o3s3.tdf                                       ; yes             ; Auto-Generated Megafunction            ; /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_o3s3.tdf                                                              ;         ;
+; db/altsyncram_emr3.tdf                                       ; yes             ; Auto-Generated Megafunction            ; /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_emr3.tdf                                                              ;         ;
+; /home/coveiro/Templates/RISCV_based_processor/src/format.mif ; yes             ; Auto-Found Memory Initialization File  ; /home/coveiro/Templates/RISCV_based_processor/src/format.mif                                                                              ;         ;
+; db/altsyncram_8or3.tdf                                       ; yes             ; Auto-Generated Megafunction            ; /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_8or3.tdf                                                              ;         ;
+; /home/coveiro/Templates/RISCV_based_processor/src/TCGROM.MIF ; yes             ; Auto-Found Memory Initialization File  ; /home/coveiro/Templates/RISCV_based_processor/src/TCGROM.MIF                                                                              ;         ;
++--------------------------------------------------------------+-----------------+----------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------+---------+
+
+
++----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                ;
++---------------------------------------------+------------------------------+
+; Resource                                    ; Usage                        ;
++---------------------------------------------+------------------------------+
+; Estimated Total logic elements              ; 796                          ;
+;                                             ;                              ;
+; Total combinational functions               ; 648                          ;
+; Logic element usage by number of LUT inputs ;                              ;
+;     -- 4 input functions                    ; 486                          ;
+;     -- 3 input functions                    ; 95                           ;
+;     -- <=2 input functions                  ; 67                           ;
+;                                             ;                              ;
+; Logic elements by mode                      ;                              ;
+;     -- normal mode                          ; 577                          ;
+;     -- arithmetic mode                      ; 71                           ;
+;                                             ;                              ;
+; Total registers                             ; 276                          ;
+;     -- Dedicated logic registers            ; 276                          ;
+;     -- I/O registers                        ; 0                            ;
+;                                             ;                              ;
+; I/O pins                                    ; 53                           ;
+; Total memory bits                           ; 20840                        ;
+;                                             ;                              ;
+; Embedded Multiplier 9-bit elements          ; 0                            ;
+;                                             ;                              ;
+; Maximum fan-out node                        ; DE10_LITE_counter:CNT0|q[25] ;
+; Maximum fan-out                             ; 215                          ;
+; Total fan-out                               ; 3508                         ;
+; Average fan-out                             ; 3.31                         ;
++---------------------------------------------+------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                                   ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; Compilation Hierarchy Node                   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                                                                                                      ; Entity Name             ; Library Name ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+; |DE10_LITE_Golden_Top                        ; 648 (81)            ; 276 (80)                  ; 20840       ; 0          ; 0            ; 0       ; 0         ; 53   ; 0            ; 0          ; |DE10_LITE_Golden_Top                                                                                                    ; DE10_LITE_Golden_Top    ; work         ;
+;    |ALU:ALU0|                                ; 94 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0                                                                                           ; ALU                     ; work         ;
+;       |mux_8NxN:m2|                          ; 48 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0|mux_8NxN:m2                                                                               ; mux_8NxN                ; work         ;
+;          |mux_2NxN:m3|                       ; 20 (20)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0|mux_8NxN:m2|mux_2NxN:m3                                                                   ; mux_2NxN                ; work         ;
+;          |mux_4NxN:m1|                       ; 28 (0)              ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1                                                                   ; mux_4NxN                ; work         ;
+;             |mux_2NxN:m3|                    ; 28 (28)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m3                                                       ; mux_2NxN                ; work         ;
+;       |two_complement:twc|                   ; 30 (30)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|ALU:ALU0|two_complement:twc                                                                        ; two_complement          ; work         ;
+;    |DE10_LITE_Memory:Memory0|                ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_Memory:Memory0                                                                           ; DE10_LITE_Memory        ; work         ;
+;       |altsyncram:altsyncram_component|      ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component                                           ; altsyncram              ; work         ;
+;          |altsyncram_o3s3:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 16384       ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated            ; altsyncram_o3s3         ; work         ;
+;    |DE10_LITE_VGA_Generator:VGA0|            ; 233 (173)           ; 54 (9)                    ; 4456        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0                                                                       ; DE10_LITE_VGA_Generator ; work         ;
+;       |Char_ROM:CGROM|                       ; 4 (4)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM                                                        ; Char_ROM                ; work         ;
+;          |altsyncram:char_gen_rom|           ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom                                ; altsyncram              ; work         ;
+;             |altsyncram_8or3:auto_generated| ; 0 (0)               ; 0 (0)                     ; 4096        ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom|altsyncram_8or3:auto_generated ; altsyncram_8or3         ; work         ;
+;       |VGA_SYNC:SYNC|                        ; 56 (56)             ; 45 (45)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC                                                         ; VGA_SYNC                ; work         ;
+;       |altsyncram:format_rom|                ; 0 (0)               ; 0 (0)                     ; 360         ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom                                                 ; altsyncram              ; work         ;
+;          |altsyncram_emr3:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 360         ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom|altsyncram_emr3:auto_generated                  ; altsyncram_emr3         ; work         ;
+;    |DE10_LITE_counter:CNT0|                  ; 26 (26)             ; 26 (26)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_counter:CNT0                                                                             ; DE10_LITE_counter       ; work         ;
+;    |DE10_LITE_decod:display0|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_decod:display0                                                                           ; DE10_LITE_decod         ; work         ;
+;    |DE10_LITE_decod:display1|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|DE10_LITE_decod:display1                                                                           ; DE10_LITE_decod         ; work         ;
+;    |RegBank:RegBank0|                        ; 173 (173)           ; 112 (112)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|RegBank:RegBank0                                                                                   ; RegBank                 ; work         ;
+;    |control_unit:FSM0|                       ; 27 (2)              ; 4 (4)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|control_unit:FSM0                                                                                  ; control_unit            ; work         ;
+;       |CU_main_decoder:cu_decoder|           ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|control_unit:FSM0|CU_main_decoder:cu_decoder                                                       ; CU_main_decoder         ; work         ;
+;       |CU_sequential:cseq|                   ; 11 (11)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|control_unit:FSM0|CU_sequential:cseq                                                               ; CU_sequential           ; work         ;
+;       |alu_decoder:aludecod|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |DE10_LITE_Golden_Top|control_unit:FSM0|alu_decoder:aludecod                                                             ; alu_decoder             ; work         ;
++----------------------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+--------------------------------------------------------------------------------------------------------------------------+-------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                            ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+--------------------+
+; Name                                                                                                          ; Type ; Mode        ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size  ; MIF                ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+--------------------+
+; DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated|ALTSYNCRAM            ; AUTO ; Single Port ; 2048         ; 16           ; --           ; --           ; 32768 ; ../src/program.mif ;
+; DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom|altsyncram_8or3:auto_generated|ALTSYNCRAM ; AUTO ; ROM         ; 512          ; 8            ; --           ; --           ; 4096  ; ../src/TCGROM.MIF  ;
+; DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom|altsyncram_emr3:auto_generated|ALTSYNCRAM                  ; AUTO ; ROM         ; 60           ; 6            ; --           ; --           ; 360   ; ../src/format.mif  ;
++---------------------------------------------------------------------------------------------------------------+------+-------------+--------------+--------------+--------------+--------------+-------+--------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                        ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------+-----------------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                ; IP Include File             ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------+-----------------------------+
+; Altera ; RAM: 1-PORT  ; 20.1    ; N/A          ; N/A          ; |DE10_LITE_Golden_Top|DE10_LITE_Memory:Memory0 ; ../src/DE10_LITE_Memory.vhd ;
++--------+--------------+---------+--------------+--------------+------------------------------------------------+-----------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                         ;
++---------------------------------------------------------+------------------------------------------------------------------+
+; Register name                                           ; Reason for Removal                                               ;
++---------------------------------------------------------+------------------------------------------------------------------+
+; DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC|red_out      ; Merged with DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC|green_out ;
+; DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC|pixel_row[9] ; Stuck at GND due to stuck port data_in                           ;
+; Total Number of Removed Registers = 2                   ;                                                                  ;
++---------------------------------------------------------+------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 276   ;
+; Number of registers using Synchronous Clear  ; 4     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 16    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 163   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |DE10_LITE_Golden_Top|DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC|v_count[5] ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|SrcA[13]                                              ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|Result[2]                                             ;
+; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|SrcB[7]                                               ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|RegBank:RegBank0|RD2[13]                              ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|RegBank:RegBank0|RD1[2]                               ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 9 LEs                ; 0 LEs                  ; No         ; |DE10_LITE_Golden_Top|SrcB[10]                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Source assignments for DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                               ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                ;
++---------------------------------+--------------------+------+--------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Source assignments for DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom|altsyncram_emr3:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                         ;
++---------------------------------+--------------------+------+--------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                          ;
++---------------------------------+--------------------+------+--------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom|altsyncram_8or3:auto_generated ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                          ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                           ;
++---------------------------------+--------------------+------+-------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                      ;
++------------------------------------+----------------------+-------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                   ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                              ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                              ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                            ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                   ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                   ;
+; WIDTH_A                            ; 16                   ; Signed Integer                            ;
+; WIDTHAD_A                          ; 11                   ; Signed Integer                            ;
+; NUMWORDS_A                         ; 2048                 ; Signed Integer                            ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                   ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                   ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                   ;
+; WIDTH_B                            ; 1                    ; Signed Integer                            ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                            ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                            ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                   ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                   ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                   ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                   ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                   ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                   ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                   ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                   ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                   ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                            ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                            ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                   ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                            ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                   ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                   ;
+; INIT_FILE                          ; ../src/program.mif   ; Untyped                                   ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                   ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                            ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                   ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                   ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                   ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                   ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                   ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                            ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                                   ;
+; CBXI_PARAMETER                     ; altsyncram_o3s3      ; Untyped                                   ;
++------------------------------------+----------------------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RegBank:RegBank0 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; WIDTH          ; 16    ; Signed Integer                       ;
+; SIZE           ; 3     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0 ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; WIDTH          ; 16    ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|two_complement:twc ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; N              ; 16    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_2NxN:m1 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 16    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|N_zero_extend:zExt1 ;
++----------------+-------+--------------------------------------------------+
+; Parameter Name ; Value ; Type                                             ;
++----------------+-------+--------------------------------------------------+
+; N              ; 16    ; Signed Integer                                   ;
++----------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2 ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; N              ; 16    ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m2 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1|mux_2NxN:m3 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m1 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m2 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_4NxN:m2|mux_2NxN:m3 ;
++----------------+-------+------------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                             ;
++----------------+-------+------------------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                                   ;
++----------------+-------+------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: ALU:ALU0|mux_8NxN:m2|mux_2NxN:m3 ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; N              ; 16    ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DE10_LITE_counter:CNT0 ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; WIDTH          ; 26    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom ;
++------------------------------------+----------------------+-------------------------------------+
+; Parameter Name                     ; Value                ; Type                                ;
++------------------------------------+----------------------+-------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                             ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                          ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                        ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                        ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                      ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                             ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                             ;
+; WIDTH_A                            ; 6                    ; Signed Integer                      ;
+; WIDTHAD_A                          ; 6                    ; Signed Integer                      ;
+; NUMWORDS_A                         ; 60                   ; Signed Integer                      ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                             ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                             ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                             ;
+; WIDTH_B                            ; 1                    ; Signed Integer                      ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                      ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                      ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                             ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                             ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                             ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                             ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                             ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                             ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                             ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                             ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                             ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                             ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                      ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                      ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                             ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                      ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                             ;
+; INIT_FILE                          ; ../src/format.mif    ; Untyped                             ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                             ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                      ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                             ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                             ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                             ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                             ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                             ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                      ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                             ;
+; CBXI_PARAMETER                     ; altsyncram_emr3      ; Untyped                             ;
++------------------------------------+----------------------+-------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom ;
++------------------------------------+----------------------+------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                 ;
++------------------------------------+----------------------+------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                              ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                              ;
+; WIDTH_A                            ; 8                    ; Signed Integer                                       ;
+; WIDTHAD_A                          ; 9                    ; Signed Integer                                       ;
+; NUMWORDS_A                         ; 512                  ; Signed Integer                                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                              ;
+; WIDTH_B                            ; 1                    ; Signed Integer                                       ;
+; WIDTHAD_B                          ; 1                    ; Signed Integer                                       ;
+; NUMWORDS_B                         ; 0                    ; Signed Integer                                       ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                              ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Signed Integer                                       ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                              ;
+; BYTE_SIZE                          ; 8                    ; Signed Integer                                       ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                              ;
+; INIT_FILE                          ; ../src/TCGROM.MIF    ; Untyped                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Signed Integer                                       ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Signed Integer                                       ;
+; DEVICE_FAMILY                      ; MAX 10               ; Untyped                                              ;
+; CBXI_PARAMETER                     ; altsyncram_8or3      ; Untyped                                              ;
++------------------------------------+----------------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                ;
++-------------------------------------------+---------------------------------------------------------------------+
+; Name                                      ; Value                                                               ;
++-------------------------------------------+---------------------------------------------------------------------+
+; Number of entity instances                ; 3                                                                   ;
+; Entity Instance                           ; DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component            ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                         ;
+;     -- WIDTH_A                            ; 16                                                                  ;
+;     -- NUMWORDS_A                         ; 2048                                                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
+;     -- WIDTH_B                            ; 1                                                                   ;
+;     -- NUMWORDS_B                         ; 0                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
+; Entity Instance                           ; DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom                  ;
+;     -- OPERATION_MODE                     ; ROM                                                                 ;
+;     -- WIDTH_A                            ; 6                                                                   ;
+;     -- NUMWORDS_A                         ; 60                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
+;     -- WIDTH_B                            ; 1                                                                   ;
+;     -- NUMWORDS_B                         ; 0                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
+; Entity Instance                           ; DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom ;
+;     -- OPERATION_MODE                     ; ROM                                                                 ;
+;     -- WIDTH_A                            ; 8                                                                   ;
+;     -- NUMWORDS_A                         ; 512                                                                 ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                        ;
+;     -- WIDTH_B                            ; 1                                                                   ;
+;     -- NUMWORDS_B                         ; 0                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                           ;
++-------------------------------------------+---------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC"                                                    ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port            ; Type   ; Severity ; Details                                                                             ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+; blue            ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; pixel_row[0]    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; pixel_column[0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DE10_LITE_decod:display0"                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; seg_dp ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DE10_LITE_decod:display1"                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                                                  ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; seg_dp ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DE10_LITE_counter:CNT0"                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                  ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+; clr      ; Input  ; Info     ; Stuck at GND                                                                                             ;
+; q[24..0] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; cout     ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; Port Connectivity Checks: "DE10_LITE_Memory:Memory0" ;
++-------------+-------+----------+---------------------+
+; Port        ; Type  ; Severity ; Details             ;
++-------------+-------+----------+---------------------+
+; address[10] ; Input ; Info     ; Stuck at GND        ;
++-------------+-------+----------+---------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 53                          ;
+; cycloneiii_ff         ; 276                         ;
+;     ENA               ; 147                         ;
+;     ENA CLR           ; 16                          ;
+;     SCLR              ; 4                           ;
+;     plain             ; 109                         ;
+; cycloneiii_lcell_comb ; 666                         ;
+;     arith             ; 71                          ;
+;         2 data inputs ; 41                          ;
+;         3 data inputs ; 30                          ;
+;     normal            ; 595                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 22                          ;
+;         2 data inputs ; 21                          ;
+;         3 data inputs ; 65                          ;
+;         4 data inputs ; 486                         ;
+; cycloneiii_ram_block  ; 30                          ;
+;                       ;                             ;
+; Max LUT depth         ; 16.10                       ;
+; Average LUT depth     ; 8.55                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:03     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sun Jan  8 17:07:11 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off DE10_LITE_Golden_Top -c DE10_LITE_Golden_Top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd
+    Info (12022): Found design unit 1: DE10_LITE_VGA_Generator-behavior File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 43
+    Info (12023): Found entity 1: DE10_LITE_VGA_Generator File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 20
+Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/VGA_SYNC.VHD
+    Info (12022): Found design unit 1: VGA_SYNC-a File: /home/coveiro/Templates/RISCV_based_processor/src/VGA_SYNC.VHD Line: 17
+    Info (12023): Found entity 1: VGA_SYNC File: /home/coveiro/Templates/RISCV_based_processor/src/VGA_SYNC.VHD Line: 8
+Info (12021): Found 1 design units, including 0 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/UP1PACK.VHD
+    Info (12022): Found design unit 1: up1core File: /home/coveiro/Templates/RISCV_based_processor/src/UP1PACK.VHD Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD
+    Info (12022): Found design unit 1: Char_ROM-a File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 16
+    Info (12023): Found entity 1: Char_ROM File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 9
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_Golden_Top.vhd is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_RV16Cm.v is missing
+Info (12021): Found 2 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd
+    Info (12022): Found design unit 1: de10_lite_memory-SYN File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 55
+    Info (12023): Found entity 1: DE10_LITE_Memory File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 43
+Info (12021): Found 1 design units, including 0 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/RV16Cm_pkg.vhd
+    Info (12022): Found design unit 1: RV16Cm_pkg File: /home/coveiro/Templates/RISCV_based_processor/src/RV16Cm_pkg.vhd Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_counter.v
+    Info (12023): Found entity 1: DE10_LITE_counter File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_counter.v Line: 1
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_FSM.v is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_ALU.v is missing
+Warning (12019): Can't analyze file -- file ../src/DE10_LITE_RegBank.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_decod.v
+    Info (12023): Found entity 1: DE10_LITE_decod File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_decod.v Line: 1
+Warning (12019): Can't analyze file -- file ../src/MAX6816.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v
+    Info (12023): Found entity 1: RegBank File: /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v
+    Info (12023): Found entity 1: control_unit File: /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v Line: 13
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/CU_main_decoder.v
+    Info (12023): Found entity 1: CU_main_decoder File: /home/coveiro/Templates/RISCV_based_processor/src/CU_main_decoder.v Line: 15
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v
+    Info (12023): Found entity 1: CU_sequential File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 12
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v
+    Info (12023): Found entity 1: alu_decoder File: /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v Line: 14
+Warning (10275): Verilog HDL Module Instantiation warning at DE10_LITE_Golden_Top.v(94): ignored dangling comma in List of Port Connections File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 94
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v
+    Info (12023): Found entity 1: DE10_LITE_Golden_Top File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/ALU.v
+    Info (12023): Found entity 1: ALU File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/two_complement.v
+    Info (12023): Found entity 1: two_complement File: /home/coveiro/Templates/RISCV_based_processor/src/two_complement.v Line: 1
+Info (12021): Found 3 design units, including 3 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/muxes.v
+    Info (12023): Found entity 1: mux_2NxN File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 1
+    Info (12023): Found entity 2: mux_4NxN File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 20
+    Info (12023): Found entity 3: mux_8NxN File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 50
+Info (12021): Found 1 design units, including 1 entities, in source file /home/coveiro/Templates/RISCV_based_processor/src/N_zero_extend.v
+    Info (12023): Found entity 1: N_zero_extend File: /home/coveiro/Templates/RISCV_based_processor/src/N_zero_extend.v Line: 1
+Info (12127): Elaborating entity "DE10_LITE_Golden_Top" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at DE10_LITE_Golden_Top.v(46): object "Op" assigned a value but never read File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 46
+Warning (10036): Verilog HDL or VHDL warning at DE10_LITE_Golden_Top.v(47): object "Funct3" assigned a value but never read File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 47
+Warning (10235): Verilog HDL Always Construct warning at DE10_LITE_Golden_Top.v(130): variable "ReadData" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 130
+Warning (10034): Output port "LEDR[9..2]" at DE10_LITE_Golden_Top.v(9) has no driver File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+Info (12128): Elaborating entity "control_unit" for hierarchy "control_unit:FSM0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 94
+Info (12128): Elaborating entity "CU_main_decoder" for hierarchy "control_unit:FSM0|CU_main_decoder:cu_decoder" File: /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v Line: 52
+Info (12128): Elaborating entity "alu_decoder" for hierarchy "control_unit:FSM0|alu_decoder:aludecod" File: /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v Line: 55
+Warning (10235): Verilog HDL Always Construct warning at alu_decoder.v(29): variable "func" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at alu_decoder.v(30): variable "func" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v Line: 30
+Warning (10235): Verilog HDL Always Construct warning at alu_decoder.v(31): variable "func" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/alu_decoder.v Line: 31
+Info (12128): Elaborating entity "CU_sequential" for hierarchy "control_unit:FSM0|CU_sequential:cseq" File: /home/coveiro/Templates/RISCV_based_processor/src/control_unit.v Line: 61
+Warning (10235): Verilog HDL Always Construct warning at CU_sequential.v(23): variable "op" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 23
+Warning (10235): Verilog HDL Always Construct warning at CU_sequential.v(24): variable "op" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 24
+Warning (10235): Verilog HDL Always Construct warning at CU_sequential.v(25): variable "op" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 25
+Warning (10235): Verilog HDL Always Construct warning at CU_sequential.v(29): variable "func_3" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 29
+Warning (10235): Verilog HDL Always Construct warning at CU_sequential.v(30): variable "func_3" is read inside the Always Construct but isn't in the Always Construct's Event Control File: /home/coveiro/Templates/RISCV_based_processor/src/CU_sequential.v Line: 30
+Info (12128): Elaborating entity "DE10_LITE_Memory" for hierarchy "DE10_LITE_Memory:Memory0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 118
+Info (12128): Elaborating entity "altsyncram" for hierarchy "DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 62
+Info (12130): Elaborated megafunction instantiation "DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 62
+Info (12133): Instantiated megafunction "DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component" with the following parameter: File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Memory.vhd Line: 62
+    Info (12134): Parameter "address_aclr_a" = "UNUSED"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../src/program.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "2048"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "16"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "11"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_o3s3.tdf
+    Info (12023): Found entity 1: altsyncram_o3s3 File: /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_o3s3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_o3s3" for hierarchy "DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated" File: /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "RegBank" for hierarchy "RegBank:RegBank0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 146
+Warning (10230): Verilog HDL assignment warning at register_bank.v(15): truncated value with size 32 to match size of target (16) File: /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v Line: 15
+Warning (10230): Verilog HDL assignment warning at register_bank.v(16): truncated value with size 32 to match size of target (16) File: /home/coveiro/Templates/RISCV_based_processor/src/register_bank.v Line: 16
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALU0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 209
+Info (12128): Elaborating entity "two_complement" for hierarchy "ALU:ALU0|two_complement:twc" File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 16
+Warning (10230): Verilog HDL assignment warning at two_complement.v(5): truncated value with size 32 to match size of target (16) File: /home/coveiro/Templates/RISCV_based_processor/src/two_complement.v Line: 5
+Info (12128): Elaborating entity "mux_2NxN" for hierarchy "ALU:ALU0|mux_2NxN:m1" File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 18
+Warning (10230): Verilog HDL assignment warning at muxes.v(12): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 12
+Info (12128): Elaborating entity "N_zero_extend" for hierarchy "ALU:ALU0|N_zero_extend:zExt1" File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 21
+Info (12128): Elaborating entity "mux_8NxN" for hierarchy "ALU:ALU0|mux_8NxN:m2" File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 26
+Warning (10036): Verilog HDL or VHDL warning at muxes.v(56): object "selection_wires" assigned a value but never read File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 56
+Warning (10230): Verilog HDL assignment warning at muxes.v(64): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 64
+Warning (10230): Verilog HDL assignment warning at muxes.v(70): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 70
+Warning (10230): Verilog HDL assignment warning at muxes.v(76): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 76
+Info (12128): Elaborating entity "mux_4NxN" for hierarchy "ALU:ALU0|mux_8NxN:m2|mux_4NxN:m1" File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 80
+Warning (10036): Verilog HDL or VHDL warning at muxes.v(26): object "selection_wires" assigned a value but never read File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 26
+Warning (10230): Verilog HDL assignment warning at muxes.v(34): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 34
+Warning (10230): Verilog HDL assignment warning at muxes.v(40): truncated value with size 32 to match size of target (1) File: /home/coveiro/Templates/RISCV_based_processor/src/muxes.v Line: 40
+Info (12128): Elaborating entity "DE10_LITE_counter" for hierarchy "DE10_LITE_counter:CNT0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 230
+Info (12128): Elaborating entity "DE10_LITE_decod" for hierarchy "DE10_LITE_decod:display1" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 241
+Info (12128): Elaborating entity "DE10_LITE_VGA_Generator" for hierarchy "DE10_LITE_VGA_Generator:VGA0" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 276
+Info (12128): Elaborating entity "altsyncram" for hierarchy "DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 70
+Info (12130): Elaborated megafunction instantiation "DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 70
+Info (12133): Instantiated megafunction "DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom" with the following parameter: File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 70
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../src/format.mif"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "60"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "6"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "6"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_emr3.tdf
+    Info (12023): Found entity 1: altsyncram_emr3 File: /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_emr3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_emr3" for hierarchy "DE10_LITE_VGA_Generator:VGA0|altsyncram:format_rom|altsyncram_emr3:auto_generated" File: /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "VGA_SYNC" for hierarchy "DE10_LITE_VGA_Generator:VGA0|VGA_SYNC:SYNC" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 95
+Info (12128): Elaborating entity "Char_ROM" for hierarchy "DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_VGA_Generator.vhd Line: 103
+Info (12128): Elaborating entity "altsyncram" for hierarchy "DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom" File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 23
+Info (12130): Elaborated megafunction instantiation "DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom" File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 23
+Info (12133): Instantiated megafunction "DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom" with the following parameter: File: /home/coveiro/Templates/RISCV_based_processor/src/CHAR_ROM.VHD Line: 23
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "address_aclr_b" = "NONE"
+    Info (12134): Parameter "address_reg_b" = "CLOCK1"
+    Info (12134): Parameter "byte_size" = "8"
+    Info (12134): Parameter "byteena_aclr_a" = "UNUSED"
+    Info (12134): Parameter "byteena_aclr_b" = "NONE"
+    Info (12134): Parameter "byteena_reg_b" = "CLOCK1"
+    Info (12134): Parameter "clock_enable_core_a" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_core_b" = "USE_INPUT_CLKEN"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_input_b" = "NORMAL"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_b" = "NORMAL"
+    Info (12134): Parameter "intended_device_family" = "MAX 10"
+    Info (12134): Parameter "ecc_pipeline_stage_enabled" = "FALSE"
+    Info (12134): Parameter "enable_ecc" = "FALSE"
+    Info (12134): Parameter "implement_in_les" = "OFF"
+    Info (12134): Parameter "indata_aclr_a" = "UNUSED"
+    Info (12134): Parameter "indata_aclr_b" = "NONE"
+    Info (12134): Parameter "indata_reg_b" = "CLOCK1"
+    Info (12134): Parameter "init_file" = "../src/TCGROM.MIF"
+    Info (12134): Parameter "init_file_layout" = "PORT_A"
+    Info (12134): Parameter "maximum_depth" = "0"
+    Info (12134): Parameter "numwords_a" = "512"
+    Info (12134): Parameter "numwords_b" = "0"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_aclr_b" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "outdata_reg_b" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "ram_block_type" = "AUTO"
+    Info (12134): Parameter "rdcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "rdcontrol_reg_b" = "CLOCK1"
+    Info (12134): Parameter "read_during_write_mode_mixed_ports" = "DONT_CARE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "read_during_write_mode_port_b" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "stratixiv_m144k_allow_dual_clocks" = "ON"
+    Info (12134): Parameter "width_a" = "8"
+    Info (12134): Parameter "width_b" = "1"
+    Info (12134): Parameter "width_byteena_a" = "1"
+    Info (12134): Parameter "width_byteena_b" = "1"
+    Info (12134): Parameter "width_eccstatus" = "3"
+    Info (12134): Parameter "widthad_a" = "9"
+    Info (12134): Parameter "widthad_b" = "1"
+    Info (12134): Parameter "wrcontrol_aclr_a" = "UNUSED"
+    Info (12134): Parameter "wrcontrol_aclr_b" = "NONE"
+    Info (12134): Parameter "wrcontrol_wraddress_reg_b" = "CLOCK1"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8or3.tdf
+    Info (12023): Found entity 1: altsyncram_8or3 File: /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_8or3.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_8or3" for hierarchy "DE10_LITE_VGA_Generator:VGA0|Char_ROM:CGROM|altsyncram:char_gen_rom|altsyncram_8or3:auto_generated" File: /nix/store/98cf3fww1zk6423wxqiwrs2y0fba4nsj-quartus-prime-lite-unwrapped-20.1.1.720/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "ALU:ALU0|DoNothing[15]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[14]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[13]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[12]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[11]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[10]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[9]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[8]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[7]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[6]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[5]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[4]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[3]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[2]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[1]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+    Warning (12110): Net "ALU:ALU0|DoNothing[0]" is missing source, defaulting to GND File: /home/coveiro/Templates/RISCV_based_processor/src/ALU.v Line: 14
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (17036): Removed 1 MSB VCC or GND address nodes from RAM block "DE10_LITE_Memory:Memory0|altsyncram:altsyncram_component|altsyncram_o3s3:auto_generated|ALTSYNCRAM" File: /home/coveiro/Templates/RISCV_based_processor/quartus/db/altsyncram_o3s3.tdf Line: 33
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 10 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 5
+    Warning (15610): No output dependent on input pin "SW[0]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[1]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[3]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[4]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[5]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[6]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[7]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[8]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+    Warning (15610): No output dependent on input pin "SW[9]" File: /home/coveiro/Templates/RISCV_based_processor/src/DE10_LITE_Golden_Top.v Line: 7
+Info (21057): Implemented 900 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 13 input pins
+    Info (21059): Implemented 40 output pins
+    Info (21061): Implemented 817 logic cells
+    Info (21064): Implemented 30 RAM segments
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 69 warnings
+    Info: Peak virtual memory: 653 megabytes
+    Info: Processing ended: Sun Jan  8 17:07:27 2023
+    Info: Elapsed time: 00:00:16
+    Info: Total CPU time (on all processors): 00:00:32
+
+

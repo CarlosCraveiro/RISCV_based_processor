@@ -1,0 +1,55 @@
+LeonardoSpectrum Level 3 - 2020a.2 (Release Production Release, compiled Apr 27 2020 at 09:07:52)
+Copyright Siemens 1990-2020.  All rights reserved.
+Portions copyright 1991-2020 Compuware Corporation
+
+Session history will be logged to file 'C:/MGC/demo/leospec.his'
+--
+-- Welcome to LeonardoSpectrum Level 3
+-- Run By 1228681@8-101-01
+-- Run Started On Wed Dec 14 15:19:56 Hora oficial do Brasil 2022
+--
+Reading library file `C:\MGC\LeoSpec\LS2020a_2\\lib\scl05u.syn`...
+Library version = Sample
+Delays assume: Process=typical Temp= 25.0 C  Voltage=3.30 V  
+Info: setting encoding to auto
+-- Reading module generator description from file C:/MGC/LeoSpec/LS2020a_2//data/modgen/scl05u.vhd
+-- Reading vhdl file C:/MGC/LeoSpec/LS2020a_2//data/modgen/scl05u.vhd into library OPERATORS
+-- Loading modgen ASIC architectures...
+-- Reading vhdl file C:\MGC\LeoSpec\LS2020a_2\\data\modgen\asic.vhd into library OPERATORS
+--
+-- ASIC MODGEN Architecture Generator Version 4.4
+--
+Info, Working Directory is now 'C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src'
+Info, History file moved to new working directory
+Info, Log file moved to new working directory
+-- Reading file 'C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v'...
+-- Loading module 'DE10_LITE_FSM'
+-- Compiling root module 'DE10_LITE_FSM'
+"C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v",line 52: Info, case choices are mutually exclusive; inferring parallel case.
+"C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v",line 48: Info, case choices are mutually exclusive; inferring parallel case.
+"C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v",line 29: Warning, ZFlag is not always assigned. Storage may be needed..
+"C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v",line 195: Warning, Funct3 should be present in the 'always' condition.
+"C:/Users/1228681/Documents/DE10_LITE_RV16Cm/src/DE10_LITE_FSM.v",line 95: Info, case choices are mutually exclusive; inferring parallel case.
+-- Boundary optimization.
+-- Start pre-optimization for design .work.DE10_LITE_FSM.INTERFACE
+-- Start pre-optimization for design .work.DE10_LITE_FSM.INTERFACE
+Using default wire table: SCL_CORE_4K
+-- Optimizing netlist .work.DE10_LITE_FSM.INTERFACE
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+Re-checking DRC after adjustments
+Re-checking DRC after adjustments
+-- Final Design Rule Check..
+-- Start timing optimization for design .work.DE10_LITE_FSM.INTERFACE
+No critical paths to optimize at this level
+Using default wire table: SCL_CORE_4K
+-- Optimizing netlist .work.DE10_LITE_FSM.INTERFACE
+-- Matching combinational logic..
+-- Matching non-combinational logic..
+-- Covering..
+-- CPU Time used :   00:00 Mapping
+-- Final Design Rule Check..
+-- Start timing optimization for design .work.DE10_LITE_FSM.INTERFACE
+No critical paths to optimize at this level

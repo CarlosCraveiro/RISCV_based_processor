@@ -14,7 +14,8 @@ module control_unit(
   input 			zero_flag,
   input				clk,
   input		[15:0] instruction,
-  output			pc_write,
+  input 			reset,
+  output	pc_write,
   output			adr_src,
   output			mem_wr,
   output			ir_wr,
@@ -23,33 +24,47 @@ module control_unit(
   output	[2:0]	alu_control,
   output	[1:0]	alu_src_b,
   output	[1:0]	alu_src_a,
-  output	[1:0]	imm_src
+  output	[1:0]	imm_src,
+  output reg [3:0] curr_state
 );
 
   // parsing the inputs
-  reg op[1:0] = instruction[1:0];
-  reg func_3[2:0] = instruction[15:13];
-  reg curr_state[3:0] =`FETCH; // start the state at fetch
-  reg next_state[3:0];
-
+  wire [1:0] op;
+  assign op = instruction[1:0];
+  wire [2:0] func_3;
+  assign func_3 = instruction[15:13];
+  //reg [3:0] curr_state;
+  wire [3:0] next_state;
   wire pc_update;
+  
+   // main decoder gets most of outputs  
+  CU_main_decoder cu_decoder(
+		.curr_state(curr_state) ,
+		.pc_up(pc_update),
+		.adr_src(adr_src),
+		.mem_wr(mem_wr) ,
+		.ir_rd(ir_wr),
+		.result_src(result_src),
+		.alu_src_b(alu_src_b),
+		.alu_src_a(alu_src_a),
+		.imm_src(imm_src),
+		.reg_wr(reg_wr)
+	);
 
-  always@(posedge clock){
-    // main decoder gets most of outputs
-    CU_main_decoder cu_decoder(.curr_state(curr_state) , .pc_up(pc_update), .adr_src(adr_src), .mem_wr(mem_wr) , .ir_rd(ir_wr), .result_src(result_src), .alu_src_b(alu_src_b), .alu_src_a(alu_src_a), .imm_src(imm_src), .reg_wr(reg_wr) )
-    
-    // alu decoder gets output for alu_control
-    alu_decoder aludecod(.curr_state(curr_state) , .func(func_3), .alu_control(alu_control));
-
-    // swtiching circuit to define pc_write
-    pc_write = pc_update or (~zero_flag and (curr_state == `BNEZ));
-
-    // gets next state
-    CU_sequential cseq(.curr_state(curr_state), .op(op), .func_3(func_3), .next_state(next_state));
-
-    // updates the state
-    curr_state = next_state;
-  }
+    // alu decoder gets output for alu_control	
+	alu_decoder aludecod(.curr_state(curr_state) , .func(func_3), .alu_control(alu_control));
+	
+	// swtiching circuit to define pc_write
+	assign pc_write = pc_update || ((~zero_flag) && (curr_state == `BNEZ)); 
+   
+	// gets next state
+	CU_sequential cseq(.curr_state(curr_state), .op(op), .func_3(func_3), .next_state(next_state));
+	
+	always @(posedge clk) begin
+	    // updates the state
+		if (reset == 1'b1) curr_state = `FETCH;
+		else curr_state = next_state;    
+	end
   
 endmodule
 
